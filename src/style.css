@@ -83,3 +83,10 @@ li:first-letter {
   font-size: 16px;
   top: -4px;
 }
+
+.weather-forecast,
+.max-temp,
+.min-temp {
+  color: #1db1a7;
+  text-align: center;
+}
