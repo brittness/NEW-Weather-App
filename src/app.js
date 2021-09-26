@@ -93,3 +93,17 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", changeToCelsius);
 
 search("Willard");
+
+function handlePosition(position) {
+  let apiKey = "14b70c24cff2033e1a32428ef051710c";
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayTemperature);
+}
+
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(handlePosition);
+}
+let currentButton = document.querySelector("#location-button");
+currentButton.addEventListener("click", getCurrentPosition);
